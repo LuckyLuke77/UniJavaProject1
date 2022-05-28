@@ -3,11 +3,12 @@ package com.projects.leo;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// The Zookeeper has all the basic functions inside the zoo!
 public class Zookeeper extends Zoo{
     static protected void PrintAllAnimals() {
         String printMessage;
         for (Animal animal : Animals) {
-            printMessage = String.format("name: %s, code: %s",animal.getName(),animal.getCode());
+            printMessage = String.format("name: %s, code: %s, category: %s, age: %s, weight: %s",animal.getName(),animal.getCode(), animal.getCategory(), animal.getAge(), animal.getWeight());
             System.out.println(printMessage);
         }
     }
@@ -20,14 +21,21 @@ public class Zookeeper extends Zoo{
         String newName = ans;
         System.out.println("Enter the code of the new animal: ");
         ans = s.nextLine();
-        int i = SearchAnimalByCode(ans, false);
-        if (i != -1) {
-            printMessage = String.format("Error: There already exists an animal with the code %s", ans);
-            System.out.println(printMessage);
-            return -1;
-        }
+        if (!Zooadmin.notDuplicate(ans)) return -1;
         String newCode = ans;
-        Animal newAnimal = new Animal(newName, newCode);
+        System.out.println("Enter the category of the new animal (mammal, bird, reptile, amphibian, fish): ");
+        ans = s.nextLine();
+        if (!Zooadmin.validCategory(ans)) return -1;
+        String newCategory = ans;
+        System.out.println("Enter the age of the new animal (years): ");
+        ans = s.nextLine();
+        if (!Zooadmin.validAge(ans)) return -1;
+        int newAge = Integer.parseInt(ans);
+        System.out.println("Enter the weight of the new animal (kilos): ");
+        ans = s.nextLine();
+        if (!Zooadmin.validWeight(ans)) return -1;
+        float newWeight = Float.parseFloat(ans);
+        Animal newAnimal = new Animal(newName, newCode, newCategory, newAge, newWeight);
         Animals.add(newAnimal);
         printMessage = String.format("Successfully added the animal %s with the code %s",newName,newCode);
         SaveData.SaveAnimal(); //Save the new animal
@@ -53,7 +61,7 @@ public class Zookeeper extends Zoo{
     // Searches for an animal based on its code inside the Animals list
     // returns its position if found
     // returns -1 if not found
-    static private int SearchAnimalByCode(String code, boolean failMessage) {
+    static protected int SearchAnimalByCode(String code, boolean failMessage) {
         int i = 0;
         for (Animal animal : Animals) {
             if (animal.getCode().equals(code)) {
@@ -114,7 +122,7 @@ public class Zookeeper extends Zoo{
         String printMessage;
         Animal selectedAnimal = Animals.get(i);
         System.out.println(selectedAnimal.AnimalDetails()); // print the details of the selected animal
-        System.out.println("Enter the detail of the animal you would like to edit (name, code): ");
+        System.out.println("Enter the detail of the animal you would like to edit (name, code, category, age, weight): ");
         ans = s.nextLine();
         switch(ans) {
             case "name":
@@ -126,14 +134,30 @@ public class Zookeeper extends Zoo{
             case "code":
                 System.out.println("Enter the new code of the animal: ");
                 ans = s.nextLine();
-                i = SearchAnimalByCode(ans, false);
-                if (i != -1) {
-                    printMessage = String.format("Error: There already exists an animal with the code %s", ans);
-                    System.out.println(printMessage);
-                    return -1;
-                }
+                if (!Zooadmin.notDuplicate(ans)) return -1;
                 printMessage = String.format("Successfully changed the code of the animal from %s to %s!",selectedAnimal.getCode(), ans);
                 selectedAnimal.setCode(ans);
+                break;
+            case "category":
+                System.out.println("Enter the new category of the animal (mammal, bird, reptile, amphibian, fish): ");
+                ans = s.nextLine();
+                if (!Zooadmin.validCategory(ans)) return -1;
+                printMessage = String.format("Successfully changed the category of the animal from %s to %s!",selectedAnimal.getCategory(), ans);
+                selectedAnimal.setCategory(ans);
+                break;
+            case "age":
+                System.out.println("Enter the new age of the animal (years): ");
+                ans = s.nextLine();
+                if (!Zooadmin.validAge(ans)) return -1;
+                printMessage = String.format("Successfully changed the age of the animal from %s to %s!",selectedAnimal.getAge(), ans);
+                selectedAnimal.setAge(Integer.parseInt(ans));
+                break;
+            case "weight":
+                System.out.println("Enter the new weight of the animal (kilos): ");
+                ans = s.nextLine();
+                if (!Zooadmin.validWeight(ans)) return -1;
+                printMessage = String.format("Successfully changed the weight of the animal from %s to %s!",selectedAnimal.getWeight(), ans);
+                selectedAnimal.setWeight(Float.parseFloat(ans));
                 break;
             default:
                 System.out.println("Error: Invalid Input");
