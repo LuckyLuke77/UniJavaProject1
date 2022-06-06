@@ -32,7 +32,7 @@ The Zookeeper Class extends the Class ***Zoo*** and it contains all the basic me
    - Prints all the details of all the animals inside the ArrayList Animals, on to the console.
 2. `addAnimal()`
    - Asks the user for the details of the new animal
-   - If the details are valid, it creates a new Object Animal and adds it into the Animals ArrayLIst.
+   - If the details are valid, it creates a new Object Animal, adds and saves it into the Animals ArrayList.
 3. `DeleteAnimal()`
    - Asks the user for the code of the animals that wants deleted.
    - If an animal with the given code exists, it removes it form the Animals ArrayList.
@@ -45,6 +45,10 @@ The Zookeeper Class extends the Class ***Zoo*** and it contains all the basic me
    - If found, it returns the animal's index inside of the Animals ArrayList.
    - otherwise, it return *-1*.
 6. `ShowAnimal(boolean byCode)`
-   - Searches and prints all the details of .
-   - If found, it returns the animal's index inside of the Animals ArrayList.
-   - otherwise, it return *-1*.
+   - If **byCode** is true, searches an animal by code using ***SearchAnimalByCode()***.
+   - Otherwise, if **byCode** is false, searches an animal by name using ***SearchAnimalByName()***.
+   - Prints all the details of the returned animal.
+6. `edit()`
+   - Asks the user for the code of an animal and searches for it using ***SearchAnimalByCode()***.
+   - If found, It asks the user for the detail they want to edit.
+   - Lastly, it asks the new value of the chosen detail, and saves the ArrayList Animals.
