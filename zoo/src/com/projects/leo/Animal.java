@@ -58,7 +58,8 @@ public class Animal implements Serializable {
     protected void setWeight(float newWeight) { this.weight = newWeight; }
 
     // return animal details neatly
-    protected String AnimalDetails() {
+    @Override
+    public String toString() {
         return "name=" + name + "\n" +
                 "code=" + code +"\n" +
                 "category=" + category +"\n" +

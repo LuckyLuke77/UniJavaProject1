@@ -1,6 +1,6 @@
 package com.projects.leo;
 
-// The Zooadmin makes sure there are no errors when manipulating the animals!
+// The Zooadmin makes sure there are no errors while working with the animals!
 public class Zooadmin extends Zookeeper {
 
     // Zooadmin checks if there already exists an animal with the given code

@@ -2,7 +2,7 @@ package com.projects.leo;
 
 import java.io.*;
 
-
+// save the Animals ArrayList on the Serialized file ZooAnimals.ser
 public class SaveData implements SerializedFile {
     protected static void SaveAnimal() {
         FileOutputStream fos;

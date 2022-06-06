@@ -3,7 +3,7 @@ package com.projects.leo;
 import java.io.*;
 import java.util.ArrayList;
 
-
+// Access the serialized file ZooAnimals.ser and return its contents
 public class RetrieveData implements SerializedFile {
     protected static ArrayList<Animal> SavedAnimals() {
         FileInputStream fis;

@@ -3,15 +3,20 @@ package com.projects.leo;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// The Zookeeper has all the basic functions inside the zoo!
+// The Zookeeper does all the basic functions inside the zoo!
 public class Zookeeper extends Zoo{
+    // Prints the details of all the  animals inside the Animals ArrayList on the console
     static protected void PrintAllAnimals() {
+        System.out.println("All the Animals:");
         String printMessage;
         for (Animal animal : Animals) {
             printMessage = String.format("name: %s, code: %s, category: %s, age: %s, weight: %s",animal.getName(),animal.getCode(), animal.getCategory(), animal.getAge(), animal.getWeight());
             System.out.println(printMessage);
         }
     }
+
+    // Add a new animal inside the Animals array list
+    // Creates new animal Object only if the details are valid
     static protected int AddAnimal() {
         Scanner s = new Scanner(System.in);
         String printMessage;
@@ -21,24 +26,24 @@ public class Zookeeper extends Zoo{
         String newName = ans;
         System.out.println("Enter the code of the new animal: ");
         ans = s.nextLine();
-        if (!Zooadmin.notDuplicate(ans)) return -1;
+        if (!Zooadmin.notDuplicate(ans)) return -1; // makes sure the given code does not already exists
         String newCode = ans;
         System.out.println("Enter the category of the new animal (mammal, bird, reptile, amphibian, fish): ");
         ans = s.nextLine();
-        if (!Zooadmin.validCategory(ans)) return -1;
+        if (!Zooadmin.validCategory(ans)) return -1; // makes sure the given category is valid
         String newCategory = ans;
         System.out.println("Enter the age of the new animal (years): ");
         ans = s.nextLine();
-        if (!Zooadmin.validAge(ans)) return -1;
+        if (!Zooadmin.validAge(ans)) return -1; // makes sure the given age is not too crazy
         int newAge = Integer.parseInt(ans);
         System.out.println("Enter the weight of the new animal (kilos): ");
         ans = s.nextLine();
-        if (!Zooadmin.validWeight(ans)) return -1;
+        if (!Zooadmin.validWeight(ans)) return -1; // makes sure the given weight is not too crazy
         float newWeight = Float.parseFloat(ans);
-        Animal newAnimal = new Animal(newName, newCode, newCategory, newAge, newWeight);
-        Animals.add(newAnimal);
+        Animal newAnimal = new Animal(newName, newCode, newCategory, newAge, newWeight); // creates the new Animal object
+        Animals.add(newAnimal); // adds it on the Animals ArrayList
         printMessage = String.format("Successfully added the animal %s with the code %s",newName,newCode);
-        SaveData.SaveAnimal(); //Save the new animal
+        SaveData.SaveAnimal(); //Save the list
         System.out.println(printMessage);
         return 0;
     }
@@ -50,11 +55,11 @@ public class Zookeeper extends Zoo{
         System.out.println("Enter the code of the animal you would like to delete:");
         animalCode = s.nextLine();
         int i = SearchAnimalByCode(animalCode, true);
-        if (i == -1) return -1;
+        if (i == -1) return -1; // makes sure the given animal exists
         String successMessage = String.format("Successfully deleted the animal %s with the code %s",Animals.get(i).getName(),Animals.get(i).getCode());
         System.out.println(successMessage);
-        Animals.remove(i);
-        SaveData.SaveAnimal();
+        Animals.remove(i); // removes the given animal
+        SaveData.SaveAnimal(); // saves the list
         return 0;
     }
 
@@ -108,10 +113,11 @@ public class Zookeeper extends Zoo{
         }
         if (i == -1) return -1;
         Animal animal = Animals.get(i);
-        System.out.println(animal.AnimalDetails());
+        System.out.println(animal.toString());
         return 0;
     }
 
+    // chose an animal, and a detail to edit
     static protected int editAnimal() {
         Scanner s = new Scanner(System.in);
         String ans;
@@ -121,7 +127,7 @@ public class Zookeeper extends Zoo{
         if (i == -1) return -1; // end function if animal not found
         String printMessage;
         Animal selectedAnimal = Animals.get(i);
-        System.out.println(selectedAnimal.AnimalDetails()); // print the details of the selected animal
+        System.out.println(selectedAnimal.toString()); // print the details of the selected animal
         System.out.println("Enter the detail of the animal you would like to edit (name, code, category, age, weight): ");
         ans = s.nextLine();
         switch(ans) {
@@ -164,7 +170,7 @@ public class Zookeeper extends Zoo{
                 return -1;
         }
         System.out.println(printMessage);
-        SaveData.SaveAnimal();
+        SaveData.SaveAnimal(); // save the list
         return 0;
     }
 }
