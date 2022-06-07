@@ -8,7 +8,7 @@
 
 # Description
 
-For the implementation of this project I have created eight Classes and one interface.
+For the implementation of this project I have created eight Classes and one interface. To use, the user choses their actions by pressing the buttons on the *Zoo Action Panel*, and enters their input on to the console, where the results of their action are also printed.
 
 ## ⚙️ Classes:
 ### :page_facing_up: Main.java <br>
