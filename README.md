@@ -98,7 +98,7 @@ The ZooForm Class contains all the code regarding the form.
 8. We press the button *Edit Animal* and enter the code "0000", we attemt to change the "gender" of the animal, but "gender" is not a valid option, so no change is made. 
 ![edit fail](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooEditFail1.png)<br>
 
-9. We press the button *Edit Animal* again and enter the code "0000", we attemt to change the code of the animal, but we enter the code a code that already exists, so no change is made
+9. We press the button *Edit Animal* again and enter the code "0000", we attemt to change the code of the animal, but we enter a code that already exists, so no change is made
 ![edit fail](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooEditFail2.png)<br>
 
 10. Once more we press *Edit Animal* and enter the code "0000", this time we attempt to change the animal's age, and successfully change it from 23 to 42.
@@ -108,5 +108,5 @@ The ZooForm Class contains all the code regarding the form.
 ![edit fail](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooShowAll2.png)<br>
 
 12. Having had enough Zoo-keeping, we press the button "Exit", and exit our program.
-13. ![edit fail](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooExitAction.png)<br>
+![edit fail](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooExitAction.png)<br>
 
