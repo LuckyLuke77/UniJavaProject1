@@ -72,7 +72,41 @@ The SaveData Class implements the interface ***SerializedFile*** and contains th
 The RetrieveData Class implements the interface ***SerializedFile*** and contains the method `SavedAnimals()` that returns the ArrayList Animals saved inside the serialized file *"ZooAnimals.ser"*.
 ### - ZooForm.java
 The ZooForm Class contains all the code regarding the form.
+# ScreenShots
 
-#
+1. Running the program we are presented with a form called *Zoo Action Panel*, and a message in the console
+![no action](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooNoAction.png)<br>
 
+2. We press the button *Help* and a list of all the available actions is printed on to the console.
+![add new animal](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooHelpAction.png)<br>
+
+3. We press the button *Show All Animals*, and a list of all the available animals inside the Zoo is printed on to the console.
+![show all animals](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooShowAll1.png)<br>
+
+4. We press the button *Add Animal* and add a new animal named Giraffe, along with its details.
+![add new animal](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooAddGiraffe.png)<br>
+
+5. We press the button *Search by name* and enter the name "dog", but there is no animal inside the zoo with such a name, so we press it again and this time enter the name "Giraffe", and it prints its details on to the console.
+![search by name](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooSearchName.png)<br>
+
+6. We press the button *Search by code* and enter the code "1111".
+![search by code](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooSearchCode.png)<br>
+
+7. We press the button *Delete* and enter the code "45688", but no animal with such a code exists, so we press it once again and enter the code "1111", consequently the poor hippo gets deleted.
+![delete](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooDelete.png)<br>
+
+8. We press the button *Edit Animal* and enter the code "0000", we attemt to change the "gender" of the animal, but "gender" is not a valid option, so no change is made. 
+![edit fail](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooEditFail1.png)<br>
+
+9. We press the button *Edit Animal* again and enter the code "0000", we attemt to change the code of the animal, but we enter the code a code that already exists, so no change is made
+![edit fail](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooEditFail2.png)<br>
+
+10. Once more we press *Edit Animal* and enter the code "0000", this time we attempt to change the animal's age, and successfully change it from 23 to 42.
+![edit fail](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooEditSuccess.png)<br>
+
+11. We press the button *Show all Animals* once again, and admire our wonderful changes.
+![edit fail](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooShowAll2.png)<br>
+
+12. Having had enough Zoo-keeping, we press the button "Exit", and exit our program.
+13. ![edit fail](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooExitAction.png)<br>
 
