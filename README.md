@@ -7,7 +7,7 @@
 </div>
 
 # Description
-
+This is a project I created with Java for the lesson Object Oriented Programming. The point of this project was to create a digital zoo with some basic zookeeping functions, and have all the zoo animals created by the user saved in a serialized file. <br><br> 
 For the implementation of this project I have created eight Classes and one interface. To use, the user choses their actions by pressing the buttons on the *Zoo Action Panel*, and enters their input on to the console, where the results of their action are also printed.
 
 ## ⚙️ Classes:
@@ -110,3 +110,4 @@ The ZooForm Class contains all the code regarding the form.
 12. Having had enough Zoo-keeping, we press the button "Exit", and exit our program.
 ![edit fail](https://github.com/LuckyLuke77/UniJavaProject1/blob/main/Screenshots/ZooExitAction.png)<br>
 
+p20155
